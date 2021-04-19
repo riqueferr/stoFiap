@@ -18,14 +18,14 @@ public class VagaController {
     @Autowired
     VagaRepository repository;
 
-    //http://localhost:8080/vagas
+    //http://localhost:8080/sto/vagas
     @GetMapping
     public ResponseEntity<List<VagaDTO>> listar() {
         List<VagaEntity> entities = repository.findAll();
         return ResponseEntity.ok(VagaDTO.parseToDTO(entities));
     }
 
-    //http://localhost:8080/vagas/1
+    //http://localhost:8080/sto/vagas/1
     @GetMapping("/{id}")
     public ResponseEntity<VagaDTO> buscarPorId(@PathVariable("id") Long id) {
         Optional<VagaEntity> entity = repository.findById(id);
@@ -36,7 +36,7 @@ public class VagaController {
     }
 
 
-    //http://localhost:8080/vagas/4
+    //http://localhost:8080/sto/vagas/4
     @DeleteMapping("/{id}")
     public ResponseEntity<VagaDTO> remover(@PathVariable("id") Long id) {
         Optional<VagaEntity> entity = repository.findById(id);
